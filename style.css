@@ -3,16 +3,14 @@ body {
 }
 
 .clock {
-	display: flex;
-	justify-content: center; /* Centers the child horizontally */
-	align-items: center; /* Centers the child vertically */
-	height: 100vh; /* Full viewport height */
-	width: 100%; /* Full width */
-	text-align: center; /* Centers the text inside the div */
-
-	color: #ff0000;
-	font-size: 220px;
-	letter-spacing: 7px;
+    display: flex;
+    justify-content: center; /* Centers the child horizontally */
+    align-items: center; /* Centers the child vertically */
+    height: 100vh; /* Full viewport height */
+    width: 100%; /* Full width */
+    text-align: center; /* Centers the text inside the div */
+    color: #ff0000;
+    font-size: 220px;
+    letter-spacing: 7px;
     font-family: Orbitron;
-	
 }
