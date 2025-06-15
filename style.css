@@ -3,16 +3,61 @@ body {
 }
 
 .clock {
-	display: flex;
-	justify-content: center; /* Centers the child horizontally */
-	align-items: center; /* Centers the child vertically */
-	height: 100vh; /* Full viewport height */
-	width: 100%; /* Full width */
-	text-align: center; /* Centers the text inside the div */
-
-	color: #ff0000;
-	font-size: 220px;
-	letter-spacing: 7px;
+    display: flex;
+    justify-content: center; /* Centers the child horizontally */
+    align-items: center; /* Centers the child vertically */
+    height: 10vh; /* Full viewport height */
+    width: 100%; /* Full width */
+    text-align: center; /* Centers the text inside the div */
+    color: #ff0000;
+    font-size: 50px;
+    letter-spacing: 7px;
     font-family: Orbitron;
-	
+}
+
+.clockFull {
+    display: flex;
+    justify-content: center; /* Centers the child horizontally */
+    align-items: center; /* Centers the child vertically */
+    height: 100vh; /* Full viewport height */
+    width: 100%; /* Full width */
+    text-align: center; /* Centers the text inside the div */
+    color: #ff0000;
+    font-size: 220px;
+    letter-spacing: 7px;
+    font-family: Orbitron;
+}
+
+
+.tournament-name {
+    color: #ffffff;
+    border-bottom: 1px solid #ffffff;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 50px;
+    letter-spacing: 2px;
+    font-family: Orbitron;
+    height: 8vh;
+    width: 100%;
+    display: flex;
+    /* justify-content: center; Centers the child horizontally */
+    /* align-items: center; Centers the child vertically */
+    text-align: left; /* Centers the text inside the div */
+
+}
+.tournament-events {
+    color: #ffffff;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    font-size: 25px;
+    letter-spacing: 2px;
+    font-family: monospace;
+    height: 8vh;
+    width: 100%;
+    display: flex;
+    /* justify-content: center; Centers the child horizontally */
+    /* align-items: center; Centers the child vertically */
+    text-align: left; /* Centers the text inside the div */
 }
