@@ -1,19 +1,16 @@
-const API_URL = 'http://epic-bee-checkin:1333/tournamentEvents';
-// const API_URL = 'http://192.168.0.32:1333/tournament';
-
-
 function showTime() {
     const url = new URL(window.location.href);
     const params = new URLSearchParams(url.search);
     console.log('params', params.size, params.get('server'));
-    const apiServer = params.size === 1 ? `http://${params.get('server')}:1333/tournamentEvents` : null;
+    const apiServer = params.size === 1 ? `/tournamentEvents` : null;
 
     const date = new Date();
     let h = date.getHours(); // 0 - 23
+    const theHour = date.getHours();
     let m = date.getMinutes(); // 0 - 59
     let session = "AM";
 
-    if (h == 0) {
+    if (h === 0) {
         h = 12;
     }
 
@@ -38,6 +35,7 @@ function showTime() {
                 throw new Error('Network response was not ok');
             }
         }).then(data => {
+            console.log('data', data);
             let message = '';
             if (data && data.result) {
                 message = `${data.tournament}`;
@@ -52,12 +50,14 @@ function showTime() {
             const currentDay = new Date().getDate();
             const events = data.events.filter(event => {
                 const eventDay = parseInt(event.day);
-                return currentDay === eventDay;
+                const eventHour = parseInt(event.hour)
+                return currentDay === eventDay && (theHour - eventHour) < 2;
             });
+            console.log('events', events);
             const eventsElement = document.getElementById("TournamentEvents");
             if (events.length > 0) {
                 const mappedEvents = events.map(event => {
-                    return `<li class="event">${event.hour}${event.min} - ${event.age} ${event.genderMix} ${event.weapon}</li>`;
+                    return `<li class="event">${event.hour}${event.min} - ${event.age} ${event.genderMix} ${event.weapon} <span id="${event.id ? `(${event.id})` : ''}">${event.strip ? `( strip : ${event.strip} )` : ""}</span> </li>`;
                 }).join('');
                 eventsElement.innerHTML = '<ul>' + mappedEvents + '</ul>';
             } else {
